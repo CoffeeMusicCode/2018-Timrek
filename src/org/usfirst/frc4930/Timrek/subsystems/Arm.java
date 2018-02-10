@@ -39,7 +39,7 @@ public class Arm extends Subsystem
 
   public void set(double speed) {
     if (speed > 0.05) {
-      extend(speed);
+      extendWithBar(speed);
     } else if (speed < -0.05) {
       retract(speed);
     } else {
@@ -57,6 +57,43 @@ public class Arm extends Subsystem
   private void maintain() {
     lElbow.set(0.1);
     lShoulder.set(0.1);
+  }
+  
+  private void extendWithBar(double speed) {
+	    // limit switches return false when pressed
+	    // if the upper arm is not extended to the bar, extend upper arm
+	    if (lElbow.getSelectedSensorPosition(0) < Values.ELBOW_TO_BAR * 0.9) {
+	      // 0.1 will maintain the position
+	      lShoulder.set(0.1);
+	      // elbow moves faster than the shoulder
+	      lElbow.set(speed * 0.8);
+	    } else if (lShoulder.getSelectedSensorPosition(0) < Values.SHOULDER_TO_BAR * 0.9) {
+	      // else if lower arm is not extended to the bar, extend lower arm
+	      lShoulder.set(speed);
+	      lElbow.set(0.2);
+	    } else {
+	    	System.out.println("moving both now");
+	    	// if both arms are past the bar, run each until they reach the limit
+		    if (lElbow.getSelectedSensorPosition(0) < Values.ELBOW_EXTENDED * 0.9) {
+			      // elbow moves faster than the shoulder
+			      lElbow.set(speed * 0.8);
+		    } else {
+		    	// maintain if at the max
+		    	lElbow.set(0.1);
+		    }
+		    
+		    if (lShoulder.getSelectedSensorPosition(0) < Values.SHOULDER_EXTENDED * 0.9) {
+			      lShoulder.set(speed);
+
+		    } else {
+		    	// maintain if at the max
+		    	lShoulder.set(0.1);
+		    }
+	    }
+  }
+  
+  private void retractWithBar(double speed) {
+	  
   }
 
   private void extend(double speed) {

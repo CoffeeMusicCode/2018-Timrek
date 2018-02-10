@@ -127,13 +127,13 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-       SmartDashboard.putBoolean("Compressor Enabled: ", RobotMap.compressor.enabled()); 
-       SmartDashboard.putBoolean("Shifter (Solenoid 0)", RobotMap.solenoid0.get());
-       SmartDashboard.putBoolean("PTO (Solenoid 1)", RobotMap.solenoid1.get());
-       SmartDashboard.putBoolean("DropWheel (Solenoid 2)", RobotMap.solenoid2.get());
-       SmartDashboard.putBoolean("Claw (Solenoid 4)", RobotMap.solenoid4.get());
-       
-       SmartDashboard.putNumber("LeftShoulder", RobotMap.lShoulder.get());
+//       SmartDashboard.putBoolean("Compressor Enabled: ", RobotMap.compressor.enabled()); 
+//       SmartDashboard.putBoolean("Shifter (Solenoid 0)", RobotMap.solenoid0.get());
+//       SmartDashboard.putBoolean("PTO (Solenoid 1)", RobotMap.solenoid1.get());
+//       SmartDashboard.putBoolean("DropWheel (Solenoid 2)", RobotMap.solenoid2.get());
+//       SmartDashboard.putBoolean("Claw (Solenoid 4)", RobotMap.solenoid4.get());
+//       
+//       SmartDashboard.putNumber("LeftShoulder", RobotMap.lShoulder.get());
        
        SmartDashboard.putNumber("Left Shoulder Encoder(21):", RobotMap.lShoulder.getSelectedSensorPosition(0));
        SmartDashboard.putNumber("Left Elbow Encoder(25):", RobotMap.lElbow.getSelectedSensorPosition(0));
@@ -141,16 +141,16 @@ public class Robot extends TimedRobot {
        SmartDashboard.putNumber("Right Master Encoder(28):", RobotMap.rDrvMSTR.getSelectedSensorPosition(0));
        SmartDashboard.putNumber("Drop Wheel Encoder(34):", RobotMap.dropWhl.getSelectedSensorPosition(0));
        
-       SmartDashboard.putNumber("UpperArmState: ", Robot.upperArm.getState());
-       SmartDashboard.putNumber("LowerArmState: ", Robot.lowerArm.getState());
-       
-       
-       SmartDashboard.putNumber("Gyro", RobotMap.ahrs.getAngle());
-       
-       SmartDashboard.putNumber("PositionPot Raw: ", RobotMap.positionPot.get());
-       SmartDashboard.putNumber("DelayPot Raw: " , RobotMap.timeDelayPot.get());
-       SmartDashboard.putNumber("PositionPot", Robot.positionDial.getPosition());
-       SmartDashboard.putNumber("DelayPot", Robot.timeDelayDial.getPosition());
+//       SmartDashboard.putNumber("UpperArmState: ", Robot.upperArm.getState());
+//       SmartDashboard.putNumber("LowerArmState: ", Robot.lowerArm.getState());
+//       
+//       
+//       SmartDashboard.putNumber("Gyro", RobotMap.ahrs.getAngle());
+//       
+//       SmartDashboard.putNumber("PositionPot Raw: ", RobotMap.positionPot.get());
+//       SmartDashboard.putNumber("DelayPot Raw: " , RobotMap.timeDelayPot.get());
+//       SmartDashboard.putNumber("PositionPot", Robot.positionDial.getPosition());
+//       SmartDashboard.putNumber("DelayPot", Robot.timeDelayDial.getPosition());
     }
 
 }
