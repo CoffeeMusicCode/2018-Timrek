@@ -56,7 +56,7 @@ public class Arm extends Subsystem
   // maintains the arm position
   private void maintain() {
     lElbow.set(0.1);
-    lShoulder.set(0.1);
+//    lShoulder.set(0.1);
   }
   
   private void extendWithBar(double speed) {
@@ -76,7 +76,7 @@ public class Arm extends Subsystem
 	    	// if both arms are past the bar, run each until they reach the limit
 		    if (lElbow.getSelectedSensorPosition(0) < Values.ELBOW_EXTENDED * 0.9) {
 			      // elbow moves faster than the shoulder
-			      lElbow.set(speed * 0.8);
+			      lElbow.set(speed * 0.5);
 		    } else {
 		    	// maintain if at the max
 		    	lElbow.set(0.1);
