@@ -24,33 +24,38 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
+import org.usfirst.frc4930.Timrek.Constants;
 
 public class RobotMap {
-	public static WPI_TalonSRX lShoulder;
-	public static WPI_TalonSRX rShoulder;
 
-	public static WPI_TalonSRX lElbow;
-	public static WPI_TalonSRX rElbow;
-
-	public static WPI_TalonSRX lIntake;
-	public static WPI_TalonSRX rIntake;
-
+	// Drive Train
 	public static WPI_TalonSRX lDrvMSTR;
 	public static WPI_VictorSPX lDrvSlv1;
 	public static WPI_VictorSPX lDrvSlv2;
 	public static WPI_TalonSRX rDrvMSTR;
 	public static WPI_VictorSPX rDrvSlv1;
 	public static WPI_VictorSPX rDrvSlv2;
+	public static DifferentialDrive driveTank;
 
+	// Lower Arm
+	public static WPI_TalonSRX lShoulder;
+	public static WPI_TalonSRX rShoulder;
+
+	// Upper Arm
+	public static WPI_TalonSRX lElbow;
+	public static WPI_TalonSRX rElbow;
+
+	// Claw
+	public static WPI_TalonSRX lIntake;
+	public static WPI_TalonSRX rIntake;
+
+	// DropWheel
 	public static WPI_TalonSRX dropWhl;
+
+	// Mast
 	public static WPI_TalonSRX mast;
 
+	// Pneumatics
 	public static Compressor compressor;
 	public static Solenoid solenoid0;
 	public static Solenoid solenoid1;
@@ -58,16 +63,15 @@ public class RobotMap {
 	public static Solenoid solenoid4;
 	public static Solenoid solenoid5;
 
+	// Sensors
 	public static AHRS ahrs;
 	public static AnalogPotentiometer positionPot;
 	public static AnalogPotentiometer timeDelayPot;
 	public static DigitalInput lArmDownLSwitch;
 
-	public static DifferentialDrive driveTank;
-
 	public static void init() {
 
-		lShoulder = new WPI_TalonSRX(21);
+		lShoulder = new WPI_TalonSRX(Constants.L_SHOULDER_ID);
 		rShoulder = new WPI_TalonSRX(23);
 
 		lElbow = new WPI_TalonSRX(25);
@@ -158,6 +162,7 @@ public class RobotMap {
 		solenoid2 = new Solenoid(50, 2); // DropWheel
 		solenoid4 = new Solenoid(50, 4); // Claw
 
+		// Pneumatics Defaults
 		solenoid0.set(true);
 		solenoid1.set(true);
 		solenoid2.set(true);
