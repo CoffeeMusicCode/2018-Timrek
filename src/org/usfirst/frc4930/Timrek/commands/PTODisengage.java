@@ -1,40 +1,31 @@
 package org.usfirst.frc4930.Timrek.commands;
 
 import org.usfirst.frc4930.Timrek.Robot;
-import org.usfirst.frc4930.Timrek.Values;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
+public class PTODisengage extends Command {
 
-
-import edu.wpi.first.wpilibj.command.Command;
-
-public class Intake extends Command {
+	public PTODisengage() {
+		requires(Robot.pto);
+	}
 
 	protected void initialize() {
+	}
 
-	}
-	
 	protected void execute() {
-		Robot.gripper.grip(0.4);
+		Robot.pto.setLowGear();
 	}
-	
-	@Override
+
 	protected boolean isFinished() {
-		
-		return false;
+		return true;
 	}
-	
+
 	protected void end() {
-		Robot.gripper.stop();
 	}
-	
+
 	protected void interrupted() {
 		end();
 	}
 
 }
-

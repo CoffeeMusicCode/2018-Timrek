@@ -1,27 +1,26 @@
 package org.usfirst.frc4930.Timrek.commands;
 
+
 import org.usfirst.frc4930.Timrek.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LowerMast extends Command{
-	 public LowerMast() {
-		  requires(Robot.mast);
+public class ShiftIntoHighGear extends Command{
+	  public ShiftIntoHighGear() {
+		    requires(Robot.shifter);
 		  }
 
 		  protected void initialize() {}
 
 		  protected void execute() {
-		    Robot.mast.set(-0.4);
+		    Robot.shifter.setHighGear();
 		  }
 
 		  protected boolean isFinished() {
-		    return false;
+		    return true;
 		  }
 
-		  protected void end() {
-			  Robot.mast.stop();
-		  }
+		  protected void end() {}
 
 		  protected void interrupted() {
 		    end();

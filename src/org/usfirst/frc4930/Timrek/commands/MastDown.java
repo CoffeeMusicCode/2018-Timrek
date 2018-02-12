@@ -4,22 +4,24 @@ import org.usfirst.frc4930.Timrek.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LowGear extends Command{
-	  public LowGear() {
-		    requires(Robot.shifter);
+public class MastDown extends Command{
+	 public MastDown() {
+		  requires(Robot.mast);
 		  }
 
 		  protected void initialize() {}
 
 		  protected void execute() {
-		    Robot.shifter.setLowGear();
+		    Robot.mast.set(-0.4);
 		  }
 
 		  protected boolean isFinished() {
-		    return true;
+		    return false;
 		  }
 
-		  protected void end() {}
+		  protected void end() {
+			  Robot.mast.stop();
+		  }
 
 		  protected void interrupted() {
 		    end();

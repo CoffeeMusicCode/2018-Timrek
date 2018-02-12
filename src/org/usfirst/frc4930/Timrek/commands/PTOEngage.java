@@ -1,19 +1,18 @@
 package org.usfirst.frc4930.Timrek.commands;
 
-
 import org.usfirst.frc4930.Timrek.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class HighGear extends Command{
-	  public HighGear() {
-		    requires(Robot.shifter);
+public class PTOEngage extends Command {
+	  public PTOEngage() {
+		    requires(Robot.pto);
 		  }
 
 		  protected void initialize() {}
 
 		  protected void execute() {
-		    Robot.shifter.setHighGear();
+		    Robot.pto.setHighGear();
 		  }
 
 		  protected boolean isFinished() {

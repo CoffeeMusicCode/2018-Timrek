@@ -4,8 +4,8 @@ import org.usfirst.frc4930.Timrek.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Raise extends Command {
-	 public Raise() {
+public class DropWheelUp extends Command {
+	 public DropWheelUp() {
 		    requires(Robot.dropWheel);
 		  }
 

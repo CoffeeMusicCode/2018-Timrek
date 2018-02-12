@@ -4,8 +4,8 @@ import org.usfirst.frc4930.Timrek.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class RaiseMast extends Command {
-	 public RaiseMast() {
+public class MastUp extends Command {
+	 public MastUp() {
 		  requires(Robot.mast);
 		  }
 
